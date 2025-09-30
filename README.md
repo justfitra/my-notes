@@ -1,6 +1,3 @@
-This Application for tracking your dialy notes 
+# Notes App With JavaScript
 
-#Teach Stack
-- Html
-- Tailwind Css
-- JavaScript
+## This Application is one of my project when i learning JavaScript
