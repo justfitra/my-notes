@@ -12,13 +12,13 @@ const headerTemplate = `
           <ul class="flex gap-2 mt-5">
             <li
               id="notes"
-              class="border px-3 py-0.5 rounded-full bg-primary/5 hover:bg-primary hover:text-secondary ease-in-out transition-all duration-200 cursor-pointer"
+              class="border-primary border px-3 py-0.5 rounded-full bg-primary/5 hover:bg-primary hover:text-secondary ease-in-out transition-all duration-200 cursor-pointer"
             >
               <a href="about.html">Notes</a>
             </li>
             <li
               id="pageId"
-              class="border px-3 py-0.5 rounded-full bg-primary/5 hover:bg-primary hover:text-secondary ease-in-out transition-all duration-200 cursor-pointer"
+              class="border-primary border px-3 py-0.5 rounded-full bg-primary/5 hover:bg-primary hover:text-secondary ease-in-out transition-all duration-200 cursor-pointer"
             >
               <a href="about.html">About</a>
             </li>
