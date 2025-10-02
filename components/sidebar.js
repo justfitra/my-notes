@@ -1,9 +1,9 @@
 const sidebarTemplate = `
 
     <div
-      class="w-1/4 border-r text-light h-[500px] border-light/50 overflow-scroll fixed scroll-auto pb-[80px]"
+      class="w-1/4 border-r bg-dark text-light h-[500px] border-light/50 overflow-scroll top-0 h-screen fixed scroll-auto pb-[80px]"
     >
-      <div class="px-[50px] py-5">
+      <div class="px-[50px] pb-5 pt-[165px]">
         <button
         type="button"
           id="addNote"
