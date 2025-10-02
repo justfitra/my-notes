@@ -57,8 +57,13 @@
   </head>
   <body class="bg-dark text-primary">
     <header-component></header-component>
-    <sidebar-component></sidebar-component>
     <modal-component></modal-component>
+    <main class="w-full relative">
+      <sidebar-component></sidebar-component>
+      <div class="absolute w-3/4 right-0 top-[150px] p-10 overflow-hidden">
+        <ul id="list" class="grid grid-cols-3 gap-4"></ul>
+      </div>
+    </main>
     <script src="components/header.js"></script>
     <script src="components/sidebar.js"></script>
     <script src="components/modal.js"></script>
