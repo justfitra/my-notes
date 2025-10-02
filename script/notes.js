@@ -12,6 +12,7 @@ const notes = (e, title, content) => {
 
   if (title && content) {
     postNote(e, title, content);
+    form.reset();
   }
 };
 
