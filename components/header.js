@@ -1,7 +1,7 @@
 const headerTemplate = `
 
- <header>
-      <nav class="w-full py-3 border-b border-light/50">
+ <header class="fixed z-30 bg-dark w-full">
+      <nav class="w-full py-4 border-b border-light/50 ">
         <div class="flex flex-col justify-between px-[50px]">
           <div class="">
             <h1 class="text-4xl font-semibold">MyNotes.com</h1>
