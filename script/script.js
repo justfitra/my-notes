@@ -8,4 +8,6 @@ formNote.addEventListener("click", (e) =>
   notes(e, title.value.trim(), content.value)
 );
 
-window.addEventListener("DOMContentLoaded", () => getAllNotes());
+document.addEventListener("DOMContentLoaded", getAllNotes);
+
+// setInterval(getAllNotes, 4000);
