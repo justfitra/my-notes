@@ -1,11 +1,10 @@
-import { API_KEY } from "../env.js";
+import { URL } from "../env.js";
 
 async function getNote() {
   try {
-    const response = await fetch(`${API_KEY}?action=read`);
+    const response = await fetch(`${URL}`);
 
     const data = await response.json();
-    // console.log(data);
 
     return data;
   } catch (err) {
