@@ -1,17 +1,17 @@
-import { API_KEY } from "../env.js";
+import { URL } from "../env.js";
 async function updateNote(id, title, content) {
   try {
-    const data = await fetch(`${API_KEY}?action=update`, {
-      method: "POST",
+    const data = await fetch(`${URL}/${id}`, {
+      method: "PATCH",
+      mode: "cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        id: 1,
-        title: "Fitra",
-        content: "Belajar Google Apps Script",
+        title: title,
+        content: content,
+        date: new Date().toLocaleString(),
       }),
     });
-    // this.reset();
-    console.log(data);
+    return data;
   } catch (err) {
     console.log(err.message);
   }
