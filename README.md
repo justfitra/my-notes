@@ -7,18 +7,28 @@ I think dialy notes is important, that's why i create this project to record my 
 ## Structure File In this App
 
 <pre>
-my-notes
- ┣ assets
- ┃ ┣ css
- ┃ ┃ ┗ style.css
- ┃ ┗ image
- ┣ components
- ┃ ┣ header.js
- ┃ ┣ modal.js
- ┃ ┗ sidebar.js
- ┣ script
- ┃ ┣ modal.js
- ┃ ┗ script.js
- ┣ index.html
- ┗ README.md
+📦my-notes
+ ┣ 📂api
+ ┃ ┣ 📜deleteNote.js
+ ┃ ┣ 📜getNote.js
+ ┃ ┣ 📜postNote.js
+ ┃ ┗ 📜updateNote.js
+ ┣ 📂assets
+ ┃ ┣ 📂css
+ ┃ ┃ ┗ 📜style.css
+ ┃ ┗ 📂image
+ ┣ 📂components
+ ┃ ┣ 📜edit-modal.js
+ ┃ ┣ 📜header.js
+ ┃ ┣ 📜modal.js
+ ┃ ┣ 📜show-modal.js
+ ┃ ┗ 📜sidebar.js
+ ┣ 📂script
+ ┃ ┣ 📜modal.js
+ ┃ ┣ 📜notes.js
+ ┃ ┗ 📜script.js
+ ┣ 📜.gitignore
+ ┣ 📜env.js
+ ┣ 📜index.html
+ ┗ 📜README.md
 </pre>
