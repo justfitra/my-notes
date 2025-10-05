@@ -1,3 +1,4 @@
+import deletNote from "../api/deleteNote.js";
 import getNote from "../api/getNote.js";
 import postNote from "../api/postNote.js";
 import updateNote from "../api/updateNote.js";
@@ -11,7 +12,7 @@ const modal = document.getElementById("modal");
 const editModal = document.getElementById("editModal");
 
 export const notes = (e, title, content) => {
-  // e.preventDefault();
+  e.preventDefault();
   if (!title) {
     console.log("title must be required");
   }
@@ -21,66 +22,68 @@ export const notes = (e, title, content) => {
   }
 
   if (title && content) {
-    postNote(e, title, content);
+    postNote(title, content);
     modal.style.display = "none";
     form.reset();
   }
 };
 
-const editNote = (e, id, title, content) => {};
-
 export async function getAllNotes() {
   try {
     const notes = await getNote();
-    console.log(notes.data);
+    console.log(notes.map((res) => res.id));
 
-    if (!notes.data) {
-      throw new Error("Notes is Empty");
-    }
-    notes.data.map((res) => {
+    notes.map((res) => {
       const li = document.createElement("li");
       const div = document.createElement("div");
       const editNoteButton = document.createElement("button");
-      const detailNote = document.createElement("button");
+      const detailNoteButton = document.createElement("button");
+      const deleteNoteButton = document.createElement("button");
 
       editNoteButton.innerHTML = `<i class="fa-solid text-xs text-light/50 hover:text-light duration-200 transition-all ease-in-out cursor-pointer fa-pen" ></i>`;
-      detailNote.innerHTML = `<i class="fa-solid text-xs text-light/50 hover:text-light duration-200 transition-all ease-in-out cursor-pointer fa-eye"></i>`;
+      deleteNoteButton.innerHTML = `<i class="fa-solid text-xs text-light/50 hover:text-light duration-200 transition-all ease-in-out cursor-pointer fa-trash"></i>`;
+      detailNoteButton.innerHTML = `<i class="fa-solid text-xs text-light/50 hover:text-light duration-200 transition-all ease-in-out cursor-pointer fa-eye"></i>`;
       div.innerHTML = `
           <div class="border p-4 rounded-lg gap-4  hover:shadow-lg shadow-primary duration-200 ease-in-out transition-all">
-              <h3 class="font-semibold text-2xl text-light overflow-hidden">${res.Title}</h3>
-              <p class="text-light/40 text-xs my-2">${res.Date}</p>
+              <h3 class="font-semibold text-2xl text-light overflow-hidden">${res.title}</h3>
+              <p class="text-light/40 text-xs my-2">${res.date}</p>
               <p class="text-light text-sm  overflow-hidden line-clamp-3">
-                  ${res.Content}
+                  ${res.content}
               </p>
               <div class="flex items-center gap-2 mt-4">
-                  <i class="fa-solid text-xs text-light/50 hover:text-light duration-200 transition-all ease-in-out cursor-pointer fa-trash"></i>
+                  
               </div>
           </div>
       `;
       li.appendChild(div);
-
+      div.querySelector(".flex").appendChild(deleteNoteButton);
       div.querySelector(".flex").prepend(editNoteButton);
-      div.querySelector(".flex").prepend(detailNote);
+      div.querySelector(".flex").prepend(detailNoteButton);
 
       editNoteButton.addEventListener("click", function () {
         editModal.style.display = "block";
-        editTitle.value = res.Title;
-        editContent.value = res.Content;
+        editTitle.value = res.title;
+        editContent.value = res.content;
         formEdit.addEventListener("submit", function (e) {
           e.preventDefault();
           console.log(editTitle.value);
-
-          updateNote(res.id, editTitle.value, editContent.value);
+          editModal.style.display = "none";
+          updateNote(res.id - 1, editTitle.value, editContent.value);
         });
       });
 
-      detailNote.addEventListener("click", function () {
+      detailNoteButton.addEventListener("click", function () {
         showModal.style.display = "block";
-        showTitle.textContent = res.Title;
-        showTime.textContent = res.Date;
-        showContent.textContent = res.Content;
+        showTitle.textContent = res.title;
+        showTime.textContent = res.date;
+        showContent.textContent = res.content;
       });
-      listNotes.appendChild(li);
+
+      deleteNoteButton.addEventListener("click", function () {
+        deletNote(res.id);
+      });
+
+      listNotes.prepend(li);
     });
   } catch (err) {
     console.log(err.meesage);
