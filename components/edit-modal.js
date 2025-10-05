@@ -37,7 +37,7 @@ const editModalTemplate = `
         </button>
         <i
           class="fa-solid fa-xmark text-light absolute top-3 right-3"
-          id="close"
+          id="edit-close"
         ></i>
       </form>
       </div>
