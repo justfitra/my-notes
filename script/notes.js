@@ -28,10 +28,9 @@ export const notes = (e, title, content) => {
   }
 };
 
-export async function getAllNotes() {
+export async function getAllNotes(title) {
   try {
-    const notes = await getNote();
-    console.log(notes.map((res) => res.id));
+    const notes = await getNote(title);
 
     notes.map((res) => {
       const li = document.createElement("li");
@@ -39,7 +38,6 @@ export async function getAllNotes() {
       const editNoteButton = document.createElement("button");
       const detailNoteButton = document.createElement("button");
       const deleteNoteButton = document.createElement("button");
-
       editNoteButton.innerHTML = `<i class="fa-solid text-xs text-light/50 hover:text-light duration-200 transition-all ease-in-out cursor-pointer fa-pen" ></i>`;
       deleteNoteButton.innerHTML = `<i class="fa-solid text-xs text-light/50 hover:text-light duration-200 transition-all ease-in-out cursor-pointer fa-trash"></i>`;
       detailNoteButton.innerHTML = `<i class="fa-solid text-xs text-light/50 hover:text-light duration-200 transition-all ease-in-out cursor-pointer fa-eye"></i>`;

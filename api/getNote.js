@@ -1,12 +1,19 @@
 import { URL } from "../env.js";
 
-async function getNote() {
+async function getNote(title) {
   try {
-    const response = await fetch(`${URL}`);
+    if (title) {
+      const response = await fetch(`${URL}/title/*${title}*`);
+      const data = await response.json();
+      console.log(data);
 
-    const data = await response.json();
+      return data;
+    } else {
+      const response = await fetch(`${URL}`);
+      const data = await response.json();
 
-    return data;
+      return data;
+    }
   } catch (err) {
     console.log(err.message);
   }
