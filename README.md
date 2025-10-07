@@ -6,14 +6,14 @@ I think dialy notes is important, that's why i create this project to record my 
 
 ## How to Installation
 
-- clone this repo https://github.com/justfitra/my-notes.git
+- clone this repo `https://github.com/justfitra/my-notes.git`
 - create new sheet in google sheet
 - make new sheet -> share to anyone -> copy your sheet link
-- login to https://sheetbest.com/
+- login to `https://sheetbest.com/`
 - paste your sheet link -> create new api
 - copy your api sheet
-- add file env.js
-- add this code export const URL = `paste_your_api_url`;
+- add file `env.js`
+- add this code `export const URL = paste_your_api_url`;
 
 ## Structure File In this App
 
