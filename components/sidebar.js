@@ -12,15 +12,15 @@ const sidebarTemplate = `
           Add Notes
           <i class="fa-solid fa-plus text-sm"></i>
         </button>
-<form id="searchForm" class="relative ">
+<form id="searchForm" class="relative w-[200px]">
 <input
   type="search"
   name="search"
   id="search"
-  class="border-light border-1 placeholder:bg-transparent rounded-full py-2 px-4"
+  class="border-light border-1 placeholder:bg-transparent rounded-full py-2 w-full px-4"
   placeholder="Search Notes"
 />
-<i class="fa-solid fa-magnifying-glass  right-0 absolute top-3 text-light"></i>
+<i class="fa-solid fa-magnifying-glass  right-4 absolute top-3 text-light"></i>
 </form>
       </div>
     </div>
